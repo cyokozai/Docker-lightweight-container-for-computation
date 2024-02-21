@@ -1,0 +1,7 @@
+services:
+  ubuntu:
+    build: .
+    container_name: julian-run
+    working_dir: /root
+    volumes:
+      - './workdir:/root'
