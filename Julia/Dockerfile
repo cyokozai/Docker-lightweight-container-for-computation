@@ -3,7 +3,7 @@ FROM ubuntu:latest AS builder
 
 WORKDIR /root
 
-COPY main.jl /root/
+COPY *.jl /root/
 
 # Install necessary packages
 RUN apt-get update && apt-get upgrade &&\
@@ -12,6 +12,7 @@ RUN apt-get update && apt-get upgrade &&\
     tar zxvf julia-1.7.0-linux-x86_64.tar.gz -C /usr --strip-components 1 &&\
     rm julia-1.7.0-linux-x86_64.tar.gz &&\
     julia -e 'using Pkg; Pkg.update()'
+    CMD ["julia", "pkginstall.jl"]
 
 ###################### PRODUCTION ######################
 FROM julia:latest-slim-buster

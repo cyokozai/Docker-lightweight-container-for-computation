@@ -4,7 +4,7 @@ FROM python:3.9 as builder
 WORKDIR /root
 
 COPY requirements.txt /root/
-COPY main.py /root/
+COPY *.py /root/
 
 RUN python -m pip install --upgrade pip &&\
     pip install --upgrade pip &&\
