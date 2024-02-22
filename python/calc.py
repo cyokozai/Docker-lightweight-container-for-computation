@@ -3,5 +3,5 @@ a += 5
 
 print(a)
 
-with open('/root/result.txt', 'w') as file:
+with open('results/result.txt', 'w') as file:
     file.write(str(a))

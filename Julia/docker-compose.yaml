@@ -1,7 +1,7 @@
 services:
   ubuntu:
     build: .
-    container_name: julian-run
+    container_name: julia-run
     working_dir: /root
     volumes:
-      - './workdir:/root'
+      - ./workdir:/root/results
