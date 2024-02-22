@@ -15,7 +15,7 @@ RUN apt-get update && apt-get upgrade &&\
     CMD ["julia", "pkginstall.jl"]
 
 ###################### PRODUCTION ######################
-FROM julia:latest-slim-buster
+FROM julia:alpine:latest
 
 WORKDIR /root
 

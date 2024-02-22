@@ -20,4 +20,4 @@ WORKDIR /root
 COPY --from=builder /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages/
 COPY --from=builder /root /root/
 
-CMD ["python", "main.py"]
+CMD ["python", "/root/main.py"]
