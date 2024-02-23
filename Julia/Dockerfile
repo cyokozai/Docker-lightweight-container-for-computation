@@ -5,7 +5,6 @@ WORKDIR /root
 
 COPY *.jl /root/
 
-# Install necessary packages
 RUN julia -e 'using Pkg; Pkg.update()' &&\
     mkdir results
 
