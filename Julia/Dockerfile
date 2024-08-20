@@ -1,13 +1,12 @@
-ARG lang="C"
-ARG dir="results"
-
 ###################### BUILDER ######################
 
 FROM julia:latest AS builder
 
+ARG dir=results
+
 WORKDIR /root
 
-COPY *.jl /root/
+COPY ./src/*.jl /root/
 
 ENV DEBIAN_FRONTEND = noninter active
 
@@ -20,14 +19,16 @@ CMD ["julia", "pkginstall.jl"]
 
 FROM julia:latest
 
+ARG lang=C
+
 WORKDIR /root
 
 COPY --from=builder /usr/local/julia/ /usr/local/julia/
 COPY --from=builder /root /root/
 
-ENV LANG ${lang}
-ENV LANGUAGE ${lang}
-ENV LC_ALL ${lang}
+ENV LANG $lang
+ENV LANGUAGE $lang
+ENV LC_ALL $lang
 ENV TZ=Asia/Tokyo
 ENV TZ JST-9
 
