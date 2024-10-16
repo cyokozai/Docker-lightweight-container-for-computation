@@ -1,4 +1,4 @@
-function calc():
+function calc()
     a = 3
     a += 5
 
